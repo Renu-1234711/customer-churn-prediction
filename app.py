@@ -517,19 +517,15 @@ st.subheader("📊 Feature Correlation Heatmap")
 
 numeric_df = df.copy()
 
-# Convert every non-numeric column into numeric codes
+# Convert every non-numeric column to category codes
 for col in numeric_df.columns:
     if not pd.api.types.is_numeric_dtype(numeric_df[col]):
-        numeric_df[col] = (
-            numeric_df[col]
-            .astype("category")
-            .cat.codes
-        )
+        numeric_df[col] = numeric_df[col].astype("category").cat.codes
 
-# Keep only numeric columns
-numeric_df = numeric_df.select_dtypes(include="number")
+# Force every column to numeric
+numeric_df = numeric_df.apply(pd.to_numeric, errors="coerce")
 
-corr = numeric_df.corr(numeric_only=True)
+corr = numeric_df.corr()
 
 fig = px.imshow(
     corr,
@@ -537,7 +533,7 @@ fig = px.imshow(
     title="Feature Correlation Heatmap"
 )
 
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width="stretch")
 
 st.divider()
 
