@@ -511,13 +511,23 @@ with col7:
     use_container_width=True
     )
 
+# Correlation Heatmap
+
 numeric_df = df.copy()
 
+# Convert every non-numeric column into category codes
 for col in numeric_df.columns:
-    if numeric_df[col].dtype == "object":
-        numeric_df[col] = numeric_df[col].astype("category").cat.codes
+    if not pd.api.types.is_numeric_dtype(numeric_df[col]):
+        numeric_df[col] = (
+            numeric_df[col]
+            .astype("category")
+            .cat.codes
+        )
 
-corr = numeric_df.corr()
+# Keep only numeric columns
+numeric_df = numeric_df.select_dtypes(include=["number"])
+
+corr = numeric_df.corr(numeric_only=True)
 
 fig = px.imshow(
     corr,
