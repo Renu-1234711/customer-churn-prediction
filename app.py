@@ -284,6 +284,8 @@ if predict:
     # Convert to DataFrame
     input_df = pd.DataFrame([input_data])
 
+    st.write("Input DataFrame")
+    st.write(input_df)
     # Scale Data
     input_scaled = scaler.transform(input_df)
 
@@ -511,11 +513,11 @@ with col7:
     use_container_width=True
     )
 
-# Correlation Heatmap
+st.subheader("📊 Feature Correlation Heatmap")
 
 numeric_df = df.copy()
 
-# Convert every non-numeric column into category codes
+# Convert every non-numeric column into numeric codes
 for col in numeric_df.columns:
     if not pd.api.types.is_numeric_dtype(numeric_df[col]):
         numeric_df[col] = (
@@ -525,21 +527,17 @@ for col in numeric_df.columns:
         )
 
 # Keep only numeric columns
-numeric_df = numeric_df.select_dtypes(include=["number"])
+numeric_df = numeric_df.select_dtypes(include="number")
 
 corr = numeric_df.corr(numeric_only=True)
 
 fig = px.imshow(
     corr,
-    text_auto=False,
     color_continuous_scale="RdBu_r",
     title="Feature Correlation Heatmap"
 )
 
-st.plotly_chart(
-    fig,
-    use_container_width=True
-)
+st.plotly_chart(fig, use_container_width=True)
 
 st.divider()
 
