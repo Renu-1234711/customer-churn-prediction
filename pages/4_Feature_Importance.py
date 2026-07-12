@@ -16,7 +16,7 @@ customer churn by showing the contribution of each feature.
 st.image(
     "images/shap_summary.png",
     caption="SHAP Summary Plot",
-    use_container_width=True
+    width="stretch"
 )
 
 st.markdown("---")

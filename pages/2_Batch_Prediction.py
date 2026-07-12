@@ -50,7 +50,7 @@ if uploaded_file is not None:
     st.write(uploaded.head(1))
 
     st.subheader("📄 Uploaded Dataset")
-    st.dataframe(uploaded.head(10), use_container_width=True)
+    st.dataframe(uploaded.head(10), width="stretch")
 
     # Check Columns
     if list(uploaded.columns) != feature_names:
@@ -60,7 +60,7 @@ if uploaded_file is not None:
     # ==========================
     # Prediction
     # ==========================
-    if st.button("🚀 Predict All Customers", use_container_width=True):
+    if st.button("🚀 Predict All Customers", width="stretch"):
         st.write(uploaded.iloc[0])
         uploaded_scaled = scaler.transform(uploaded)
 
@@ -116,7 +116,7 @@ if uploaded_file is not None:
                 color_prediction,
                 subset=["Prediction"]
             ),
-            use_container_width=True
+            width="stretch"
         )
 
         st.divider()
@@ -188,7 +188,7 @@ if uploaded_file is not None:
         if len(churn_df) > 0:
             st.dataframe(
                 churn_df,
-                use_container_width=True
+                width="stretch"
             )
         else:
             st.success("🎉 No customers are predicted to churn.")
@@ -206,5 +206,5 @@ if uploaded_file is not None:
             data=csv,
             file_name="customer_churn_predictions.csv",
             mime="text/csv",
-            use_container_width=True
+            width="stretch"
         )

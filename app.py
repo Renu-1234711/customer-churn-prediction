@@ -185,7 +185,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 predict = st.button(
     "🚀 Predict Customer Churn",
-    use_container_width=True
+    width="stretch"
 )
 
 if predict:
@@ -405,7 +405,7 @@ with col1:
 
     st.plotly_chart(
     fig,
-    use_container_width=True
+    width="stretch"
     )
 
 with col2:
@@ -422,7 +422,7 @@ with col2:
 
     st.plotly_chart(
     fig,
-    use_container_width=True
+    width="stretch"
     )
 
 # ==========================
@@ -444,7 +444,7 @@ with col3:
 
     st.plotly_chart(
     fig,
-    use_container_width=True
+    width="stretch"
     )
 
 with col4:
@@ -461,7 +461,7 @@ with col4:
 
     st.plotly_chart(
     ffig,
-    use_container_width=True
+    width="stretch"
     )
     
 col5, col6 = st.columns(2)
@@ -478,7 +478,7 @@ with col5:
 
     st.plotly_chart(
     fig,
-    use_container_width=True
+    width="stretch"
    )
     
 with col6:
@@ -494,7 +494,7 @@ with col6:
 
     st.plotly_chart(
     fig,
-    use_container_width=True
+    width="stretch"
     )
 
 col7, col8 = st.columns(2)
@@ -510,7 +510,7 @@ with col7:
 
     st.plotly_chart(
     fig,
-    use_container_width=True
+    width="stretch"
     )
 
 st.subheader("📊 Feature Correlation Heatmap")
@@ -533,7 +533,7 @@ fig = px.imshow(
     title="Feature Correlation Heatmap"
 )
 
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width="stretch")
 
 st.divider()
 
@@ -562,5 +562,5 @@ on customer churn prediction.
 st.image(
     "images/shap_summary.png",
     caption="SHAP Feature Importance",
-    use_container_width=True
+    width="stretch"
 )

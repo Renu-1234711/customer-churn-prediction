@@ -16,11 +16,11 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("Confusion Matrix")
-    st.image("images/confusion_matrix.png", use_container_width=True)
+    st.image("images/confusion_matrix.png", width="stretch")
 
 with col2:
     st.subheader("ROC Curve")
-    st.image("images/roc_curve.png", use_container_width=True)
+    st.image("images/roc_curve.png", width="stretch")
 
 st.divider()
 
@@ -32,7 +32,7 @@ report = pd.read_csv("images/classification_report.csv")
 
 st.dataframe(
     report,
-    use_container_width=True
+    width="stretch"
 )
 
 st.divider()
@@ -43,5 +43,5 @@ metrics = pd.read_csv("images/model_metrics.csv")
 
 st.dataframe(
     metrics,
-    use_container_width=True
+    width="stretch"
 )
