@@ -525,7 +525,7 @@ for col in numeric_df.columns:
 # Force every column to numeric
 numeric_df = numeric_df.apply(pd.to_numeric, errors="coerce")
 
-corr = numeric_df.corr()
+corr = numeric_df.corr(numeric_only=True)
 
 fig = px.imshow(
     corr,
@@ -533,7 +533,7 @@ fig = px.imshow(
     title="Feature Correlation Heatmap"
 )
 
-st.plotly_chart(fig, width="stretch")
+st.plotly_chart(fig, use_container_width=True)
 
 st.divider()
 

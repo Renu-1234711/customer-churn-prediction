@@ -39,6 +39,15 @@ uploaded_file = st.file_uploader(
 if uploaded_file is not None:
 
     uploaded = pd.read_csv(uploaded_file)
+    
+    st.write("Columns:")
+    st.write(uploaded.columns.tolist())
+
+    st.write("Data Types:")
+    st.write(uploaded.dtypes)
+
+    st.write("First Row")
+    st.write(uploaded.head(1))
 
     st.subheader("📄 Uploaded Dataset")
     st.dataframe(uploaded.head(10), use_container_width=True)
@@ -52,7 +61,7 @@ if uploaded_file is not None:
     # Prediction
     # ==========================
     if st.button("🚀 Predict All Customers", use_container_width=True):
-
+        st.write(uploaded.iloc[0])
         uploaded_scaled = scaler.transform(uploaded)
 
         prediction = model.predict(uploaded_scaled)
