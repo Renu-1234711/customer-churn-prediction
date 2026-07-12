@@ -1,6 +1,10 @@
 import streamlit as st
+import pickle
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
 
 st.set_page_config(page_title="Test")
 
-st.title("Customer Churn Prediction")
-st.success("App is running successfully!")
+st.write("Imports OK")
