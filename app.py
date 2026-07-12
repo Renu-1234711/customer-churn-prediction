@@ -403,10 +403,7 @@ with col1:
     textinfo="percent+label"
     )
 
-    st.plotly_chart(
-    fig,
-    width="stretch"
-    )
+    st.plotly_chart(fig, width="stretch", key="churn_distribution")
 
 with col2:
 
@@ -420,10 +417,7 @@ with col2:
     title="Contract Type vs Churn"
     )
 
-    st.plotly_chart(
-    fig,
-    width="stretch"
-    )
+    st.plotly_chart(fig, width="stretch", key="churn_distribution")
 
 # ==========================
 # Second Row
@@ -442,10 +436,7 @@ with col3:
     title="Internet Service vs Churn"
     )
 
-    st.plotly_chart(
-    fig,
-    width="stretch"
-    )
+    st.plotly_chart(fig, width="stretch", key="churn_distribution")
 
 with col4:
 
@@ -459,10 +450,7 @@ with col4:
     title="Monthly Charges Distribution"
     )
 
-    st.plotly_chart(
-    fig,
-    width="stretch"
-    )
+    st.plotly_chart(fig, width="stretch", key="churn_distribution")
     
 col5, col6 = st.columns(2)
 with col5:
@@ -476,10 +464,7 @@ with col5:
     title="Tenure vs Churn"
     )
 
-    st.plotly_chart(
-    fig,
-    width="stretch"
-   )
+    st.plotly_chart(fig, width="stretch", key="churn_distribution")
     
 with col6:
     st.subheader("👥 Gender vs Churn")
@@ -492,10 +477,7 @@ with col6:
     title="Gender vs Churn"
     )
 
-    st.plotly_chart(
-    fig,
-    width="stretch"
-    )
+    st.plotly_chart(fig, width="stretch", key="churn_distribution")
 
 col7, col8 = st.columns(2)
 with col7:
@@ -508,10 +490,7 @@ with col7:
     title="Payment Method vs Churn"
     )
 
-    st.plotly_chart(
-    fig,
-    width="stretch"
-    )
+    st.plotly_chart(fig, width="stretch", key="churn_distribution")
 
 st.subheader("📊 Feature Correlation Heatmap")
 
@@ -533,7 +512,7 @@ fig = px.imshow(
     title="Feature Correlation Heatmap"
 )
 
-st.plotly_chart(fig, width="stretch")
+st.plotly_chart(fig, width="stretch", key="churn_distribution")
 
 st.divider()
 
