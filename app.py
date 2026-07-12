@@ -460,7 +460,7 @@ with col4:
     )
 
     st.plotly_chart(
-    ffig,
+    fig,
     width="stretch"
     )
     
@@ -552,4 +552,13 @@ Python • Streamlit • Scikit-Learn • Pandas • Matplotlib
 
 st.header("🧠 Model Explainability")
 
-st.write("Coming soon...")
+st.write("""
+The SHAP Summary Plot explains which features have the greatest impact
+on customer churn prediction.
+""")
+
+st.image(
+    "images/shap_summary.png",
+    caption="SHAP Feature Importance",
+    width="stretch"
+)
