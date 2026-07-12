@@ -405,7 +405,7 @@ with col1:
 
     st.plotly_chart(fig, width="stretch", key="churn_distribution")
 
-    with col2:
+with col2:
 
     st.subheader("📃 Contract Type vs Churn")
 
